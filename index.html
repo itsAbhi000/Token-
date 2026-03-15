@@ -3,16 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display Code</title>
+    <title>Display Token</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            font-size: 3em;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <h1>Your Code: <span id="code"></span></h1>
+    <h1 id="code-display">Your Code: Loading...</h1>
 
     <script>
-        // Extract code from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const code = urlParams.get('code'); // Get the 'code' parameter from the URL
-        document.getElementById('code').textContent = code || 'No code provided';
+        // Extracting the token (code) from the URL path
+        const path = window.location.pathname; // Get the path (like /AEUROEBTEO)
+        const code = path.substring(1); // Remove the leading "/" to get the code
+        document.getElementById('code-display').textContent = "Your Code: " + (code ? code : 'No code provided');
     </script>
 </body>
 </html>
