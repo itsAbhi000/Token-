@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Display</title>
+</head>
+<body>
+    <h1>Your Code: <span id="code"></span></h1>
+
+    <script>
+        // Extract code from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code'); // Get the 'code' parameter from the URL
+        document.getElementById('code').textContent = code || 'No code provided';
+    </script>
+</body>
+</html>
